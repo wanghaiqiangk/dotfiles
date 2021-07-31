@@ -21,3 +21,9 @@ tich ()
         tmux attach
     fi
 }
+
+tlayout ()
+{
+    tmux new -s emacs -n startup -d
+    tmux new -s workspace \; split-window -c $HOME \; split-window -h -c $HOME \; select-pane -t 0
+}

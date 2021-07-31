@@ -44,6 +44,7 @@ In a terminal, you can
 - `trename <session-id>`: Equal to `tmux rename -session -t`
 - `tkill <session-id>`: Equal to `tmux kill-session -t`
 - `tdrop`: Equal to `tmux kill-server`
+- `tlayout`: Create a predefined layout(2 session)
 
 
 
