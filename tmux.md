@@ -6,7 +6,7 @@
 
 
 
-## Usage
+## Standalone Usage
 
 Assume the absolute location is `/path/to/.tmux.conf`, the most simple way to enable the customization is:
 
@@ -25,6 +25,25 @@ If you prefer to alias, then append this to `.bashrc` or `.zshrc`:
 ```shell
 alias tmux="tmux -f /path/to/.tmux.conf"
 ```
+
+
+
+## Shell Integration
+
+Assume the shell script is `/path/to/.shellrc.tmux`, add this line to your profile script:
+
+```shell
+source /path/to/.shellrc.tmux
+```
+
+In a terminal, you can
+
+- `tnew [session-name]`: Equal to `tmux new` or `tmux new -t`. Create a tmux session with optional session name
+- `tls`: Equal to `tmux list-session`
+- `tich [session-id]`: Equal to `tmux attach` or `tmux attach -t`. It means *tmux-which*, the most recent or the optionally specified one.
+- `trename <session-id>`: Equal to `tmux rename -session -t`
+- `tkill <session-id>`: Equal to `tmux kill-session -t`
+- `tdrop`: Equal to `tmux kill-server`
 
 
 
@@ -55,7 +74,49 @@ set t_Co=256
 
 
 
+## Keybindings
+
+| Function | Key Sequence         |
+| -------- | -------------------- |
+| Prefix   | C-j (default is C-b) |
+
+Related to Panel
+
+| Function                                       | Key Sequence |
+| ---------------------------------------------- | ------------ |
+| Split horizontally                             | <prefix> %   |
+| Split vertically                               | <prefix> "   |
+| Close pane                                    | <prefix> x   |
+| Switch to the next pane                       | <prefix> o   |
+| Move all pane forward                         | <prefix> C-o |
+| Move all pane backward                        | <prefix> M-o |
+| Toggle current pane fullscreen on/off         | <prefix> z   |
+| Make current pane shown in a separated window | <prefix> !   |
+
+Related to Window
+
+| Function            | Key Sequence |
+| ------------------- | ------------ |
+| Create a new window | <prefix> c   |
+| List all windows    | <prefix> w   |
+
+
+
+## Activate Tmux Conf
+
+Inside tmux, any modification to conf won't take effect until you source it.
+
+```shell
+$ tmux source-file /path/to/.tmux.conf
+```
+
+
+
 ## Reference
 
 [Vim color scheme changes in tmux #699](https://github.com/tmux/tmux/issues/699)
+
+[A simple introduction, in Chinese](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
+
+[oh my tmux](https://github.com/gpakosz/.tmux)
 
