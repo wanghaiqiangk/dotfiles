@@ -30,10 +30,17 @@ alias tmux="tmux -f /path/to/.tmux.conf"
 
 ## Shell Integration
 
-Assume the shell script is `/path/to/.shellrc.tmux`, add this line to your profile script:
+The profile script need to be notified where the tmux and dotfiles is:
+
+```bash
+TMUX_BIN="/path/to/tmux-bin"       # This is optional and the default value is set by $(which tmux)
+DOTFILES="/path/to/dotfiles-repo"  # This is mandatory since we do not know to where you put the repo and to which you name the repo
+```
+
+Only after that, you can integrate tmux config with your profile script (e.g. .bashrc, .zshrc):
 
 ```shell
-source /path/to/.shellrc.tmux
+source ${DOTFILES}/.shellrc.tmux
 ```
 
 In a terminal, you can
@@ -81,7 +88,7 @@ set t_Co=256
 | -------- | -------------------- |
 | Prefix   | C-j (default is C-b) |
 
-Related to Panel
+Related to Pane
 
 | Function                                       | Key Sequence |
 | ---------------------------------------------- | ------------ |
