@@ -6,6 +6,16 @@
 
 
 
+## Minimal Version & Deps Requirement
+
+Tmux 3.2 - Dramatically simplify how tmux can be configured
+
+Deps:
+
+- `sudo apt install xclip`
+
+
+
 ## Standalone Usage
 
 Assume the absolute location is `/path/to/.tmux.conf`, the most simple way to enable the customization is:
