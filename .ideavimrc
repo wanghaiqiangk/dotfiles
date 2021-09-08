@@ -1,0 +1,4 @@
+let mapleader = " "
+set incsearch
+
+map <leader>g <Action>(Vcs.Operations.Popup)
