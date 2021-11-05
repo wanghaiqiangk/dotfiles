@@ -2,3 +2,7 @@ let mapleader = " "
 set incsearch
 
 map <leader>g <Action>(Vcs.Operations.Popup)
+map <leader>f <Action>(GotoFile)
+map <leader>. <Action>(QuickJavaDoc)
+map <leader>r <Action>(Refactorings.QuickListPopupAction)
+map <leader>s <Action>(ChooseRunConfiguration)
