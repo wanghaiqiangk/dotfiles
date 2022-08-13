@@ -1,9 +1,19 @@
 let mapleader = " "
-set incsearch
 
-map <leader>g <Action>(Vcs.Operations.Popup)
+set incsearch
+set hlsearch
+
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
+
+map <leader>b <Action>(Switcher)
 map <leader>f <Action>(GotoFile)
 map <leader>. <Action>(QuickJavaDoc)
-map <leader>r <Action>(Refactorings.QuickListPopupAction)
-map <leader>S <Action>(ChooseRunConfiguration)
-map <leader>s <Action>(FindInPath)
+map <leader>? <Action>(ShowErrorDescription)
+map <leader>g <Action>(EditorSelectWord)<Action>(FindInPath)
+map <leader>i <Action>(RenameElement)
+
+packadd! matchit
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'michaeljsmith/vim-indent-object'
