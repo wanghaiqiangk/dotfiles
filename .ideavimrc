@@ -17,3 +17,4 @@ packadd! matchit
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'kana/vim-textobj-entire'
