@@ -1,6 +1,6 @@
 # IdeaVim
 
-If you are a vimer and somehow is using Jetbrains IDEs...(you may not a pure vimer lol), you definitely know ideavim, which is a vim emulation plugin for Jetbrains family.
+If you are a vimmer and somehow is using Jetbrains IDEs...(you may not a pure vimmer lol), you definitely know ideavim, which is a vim emulation plugin for Jetbrains family.
 
 With ideavim, you can perform most of similar operations that vim offers. In this way, you can not only quickly adapt yourself to Jetbrain IDEs, but also easily enjoy those specialized and powerful features provided by IDEs.
 
@@ -60,16 +60,16 @@ are placeholders where you should write on you own.
 
 You really should customize keybindings based on your preference. I will list some of them which are frequently used on my daily working.
 
-| Key Seq   | Action ID                      | Desc                            |
-| --------- | ------------------------------ | ------------------------------- |
-| [[        | MethodUp                       |                                 |
-| ]]        | MethodDown                     |                                 |
-| <leader>b | Switcher                       | Switch tabs                     |
-| <leader>f | GotoFile                       | Quick open files                |
-| <leader>. | QuickJavaDoc                   | View doc under cursor           |
-| <leader>? | ShowErrorDescription           | View error message under cursor |
-| <leader>i | RenameElement                  | Rename the word under cursor    |
-| <leader>g | EditorSelectWord -> FindInPath |                                 |
+| Key Seq    | Action ID                      | Desc                            |
+| ---------- | ------------------------------ | ------------------------------- |
+| [[         | MethodUp                       |                                 |
+| ]]         | MethodDown                     |                                 |
+| \<leader>b | Switcher                       | Switch tabs                     |
+| \<leader>f | GotoFile                       | Quick open files                |
+| \<leader>. | QuickJavaDoc                   | View doc under cursor           |
+| \<leader>? | ShowErrorDescription           | View error message under cursor |
+| \<leader>i | RenameElement                  | Rename the word under cursor    |
+| \<leader>g | EditorSelectWord -> FindInPath |                                 |
 
 # Plugins
 
@@ -81,3 +81,4 @@ Here, I enable
 - `Plug 'tpope/vim-surround'`
 - `Plug 'tpope/vim-commentary'`
 - `Plug 'michaeljsmith/vim-indent-object'`
+- `Plug 'kana/vim-textobj-entire'`
