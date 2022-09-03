@@ -1,36 +1,57 @@
 # Tmux - Customization
 
-[tmux - Introduction](https://github.com/tmux/tmux)
+There are two sessions:
 
-[tmux - Installation](https://github.com/tmux/tmux/wiki/Installing)
+- emacs session with one window startup
 
+- workspace session with one unnamed window.
 
+![workspaces](/home/wang/workspace/repos/dotfiles/imgs/workspaces.png)
 
-## Minimal Version & Deps Requirement
+The unnamed window in workspace session has a default three buffers:
 
-Tmux 3.2 - Dramatically simplify how tmux can be configured
-
-Deps:
-
-- `sudo apt install xclip`
+![workspace layout](/home/wang/workspace/repos/dotfiles/imgs/workspace_layout.png)
 
 
 
-## Standalone Usage
+## How to Install
 
-Assume the absolute location is `/path/to/.tmux.conf`, the most simple way to enable the customization is:
+[Tmux](https://github.com/tmux/tmux) 3.2+ is recommended, because configuration is dramatically simplified.
+
+```shell
+# basic dependencies
+$ sudo apt update
+$ sudo apt install build-essential bison pkg-config libevent-dev libncurses-dev xclip
+
+# build from source
+$ wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+$ tar -zxf tmux-*.tar.gz
+$ cd tmux-*/
+$ ./autogen.sh
+$ ./configure --prefix="/usr/local"
+$ make -j8
+$ sudo make install
+```
+
+
+
+## tmux Configuration
+
+After installation, you can run tmux by simply invoking `tmux` in terminal. tmux can be customized, you may read tmux manuals for how to tweak its behaviors. 
+
+My configuration is stored in `.tmux.conf`. Let tmux read this file like:
 
 ```shell
 $ tmux -f /path/to/.tmux.conf
 ```
 
-Besides, since tmux looks for user config file `$HOME/.tmux.conf`, a symbolic link works, too:
+Because tmux will look for user config file named `.tmux.conf` in the home directory, a symbolic link works:
 
 ```shell
 $ link -s /path/to/.tmux.conf $HOME/.tmux.conf
 ```
 
-If you prefer to alias, then append this to `.bashrc` or `.zshrc`:
+If you prefer to using alias, then append this line to shell source file:
 
 ```shell
 alias tmux="tmux -f /path/to/.tmux.conf"
@@ -40,20 +61,15 @@ alias tmux="tmux -f /path/to/.tmux.conf"
 
 ## Shell Integration
 
-The profile script need to be notified where the tmux and dotfiles is:
+Put the following lines to your favorite shell source file, such as `.bashrc` or `.zshrc`:
 
 ```bash
 TMUX_BIN="/path/to/tmux-bin"       # This is optional and the default value is set by $(which tmux)
-DOTFILES="/path/to/dotfiles-repo"  # This is mandatory since we do not know to where you put the repo and to which you name the repo
-```
-
-Only after that, you can integrate tmux config with your profile script (e.g. .bashrc, .zshrc):
-
-```shell
+DOTFILES="/path/to/dotfiles-repo"  # This is mandatory
 source ${DOTFILES}/.shellrc.tmux
 ```
 
-In a terminal, you can
+Then, you can use the following command lines:
 
 - `tnew [session-name]`: Equal to `tmux new` or `tmux new -t`. Create a tmux session with optional session name
 - `tls`: Equal to `tmux list-session`
@@ -61,7 +77,7 @@ In a terminal, you can
 - `trename <session-id>`: Equal to `tmux rename -session -t`
 - `tkill <session-id>`: Equal to `tmux kill-session -t`
 - `tdrop`: Equal to `tmux kill-server`
-- `tlayout`: Create a predefined layout(2 session)
+- `tlayout`: Create a predefined layout
 
 
 
@@ -100,23 +116,24 @@ set t_Co=256
 
 Related to Pane
 
-| Function                                       | Key Sequence |
-| ---------------------------------------------- | ------------ |
-| Split horizontally                             | <prefix> %   |
-| Split vertically                               | <prefix> "   |
-| Close pane                                    | <prefix> x   |
-| Switch to the next pane                       | <prefix> o   |
-| Move all pane forward                         | <prefix> C-o |
-| Move all pane backward                        | <prefix> M-o |
-| Toggle current pane fullscreen on/off         | <prefix> z   |
-| Make current pane shown in a separated window | <prefix> !   |
+| Function                                      | Key Sequence  |
+| --------------------------------------------- | ------------- |
+| Split horizontally                            | \<prefix> %   |
+| Split vertically                              | \<prefix> "   |
+| Close pane                                    | \<prefix> x   |
+| Switch to the next pane                       | \<prefix> o   |
+| Move all pane forward                         | \<prefix> C-o |
+| Move all pane backward                        | \<prefix> M-o |
+| Toggle current pane fullscreen on/off         | \<prefix> z   |
+| Make current pane shown in a separated window | \<prefix> !   |
 
 Related to Window
 
 | Function            | Key Sequence |
 | ------------------- | ------------ |
-| Create a new window | <prefix> c   |
-| List all windows    | <prefix> w   |
+| Create a new window | \<prefix> c  |
+| List all windows    | \<prefix> w  |
+| Rename window       | \<prefix> ,  |
 
 
 
