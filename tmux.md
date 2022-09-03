@@ -61,12 +61,15 @@ alias tmux="tmux -f /path/to/.tmux.conf"
 
 ## Shell Integration
 
-Put the following lines to your favorite shell source file, such as `.bashrc` or `.zshrc`:
+To simplify how to use tmux, I abstract tmux invocations.
+
+First, run the following command lines under project root:
 
 ```bash
-TMUX_BIN="/path/to/tmux-bin"       # This is optional and the default value is set by $(which tmux)
-DOTFILES="/path/to/dotfiles-repo"  # This is mandatory
-source ${DOTFILES}/.shellrc.tmux
+# change the source file to your favorite shell's
+echo TMUX_BIN=$(which tmux) >> $HOME/.bashrc
+echo DOTFILES=$PWD >> $HOME/.bashrc
+echo source \${DOTFILES}/.shellrc.tmux >> $HOME/.bashrc
 ```
 
 Then, you can use the following command lines:
