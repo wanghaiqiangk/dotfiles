@@ -6,11 +6,11 @@ There are two sessions:
 
 - workspace session with one unnamed window.
 
-![workspaces](/home/wang/workspace/repos/dotfiles/imgs/workspaces.png)
+![workspaces](./imgs/workspaces.png)
 
 The unnamed window in workspace session has a default three buffers:
 
-![workspace layout](/home/wang/workspace/repos/dotfiles/imgs/workspace_layout.png)
+![workspace layout](./imgs/workspace_layout.png)
 
 
 
