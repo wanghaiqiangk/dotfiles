@@ -1,0 +1,13 @@
+# turn off flow control
+[[ $- == *i* ]] && stty -ixon
+
+# better history completion. type abc and try M-p or M-n
+bind '"\ep": history-search-backward'
+bind '"\en": history-search-forward'
+
+# Give the change to further modify the command from history expansion
+shopt -s histverify
+# Append the time of when the command was invoked
+export HISTTIMEFORMAT="%F %T  "
+# Carry all histories from one session to another
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
