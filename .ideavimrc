@@ -2,6 +2,8 @@ let mapleader = " "
 
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 
 map [[ <Action>(MethodUp)
 map ]] <Action>(MethodDown)
@@ -12,6 +14,7 @@ map <leader>. <Action>(QuickJavaDoc)
 map <leader>? <Action>(ShowErrorDescription)
 map <leader>g <Action>(EditorSelectWord)<Action>(FindInPath)
 map <leader>i <Action>(RenameElement)
+" map <leader>t <Action>(Refactorings.QuickListPopupAction)
 
 packadd! matchit
 Plug 'tpope/vim-surround'
