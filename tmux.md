@@ -129,6 +129,7 @@ Related to Pane
 | Move all pane backward                        | \<prefix> M-o |
 | Toggle current pane fullscreen on/off         | \<prefix> z   |
 | Make current pane shown in a separated window | \<prefix> !   |
+| Reload tmux config                            | \<prefix> r   |
 
 Related to Window
 
@@ -147,6 +148,8 @@ Inside tmux, any modification to conf won't take effect until you source it.
 ```shell
 $ tmux source-file /path/to/.tmux.conf
 ```
+
+, which can also be carried out via `<prefix> r`.
 
 
 
