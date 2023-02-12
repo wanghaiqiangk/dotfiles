@@ -115,7 +115,7 @@ set t_Co=256
 
 | Function | Key Sequence         |
 | -------- | -------------------- |
-| Prefix   | C-j (default is C-b) |
+| Prefix   | C-\ (default is C-b) |
 
 Related to Pane
 
