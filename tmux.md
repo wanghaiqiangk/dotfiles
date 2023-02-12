@@ -121,8 +121,8 @@ Related to Pane
 
 | Function                                      | Key Sequence  |
 | --------------------------------------------- | ------------- |
-| Split horizontally                            | \<prefix> %   |
-| Split vertically                              | \<prefix> "   |
+| Split horizontally                            | \<prefix> -   |
+| Split vertically                              | \<prefix> \|  |
 | Close pane                                    | \<prefix> x   |
 | Switch to the next pane                       | \<prefix> o   |
 | Move all pane forward                         | \<prefix> C-o |
