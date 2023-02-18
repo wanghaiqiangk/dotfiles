@@ -12,10 +12,32 @@ export HISTTIMEFORMAT="%F %T  "
 # Carry all histories from one session to another
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+function git_current_branch() {
+    local ref
+    ref=$(git symbolic-ref --quiet HEAD 2>/dev/null)
+    local ret="$?"
+    if [ $ret -ne 0 ] ; then
+        [ $ret -eq 128 ] && return # no git repo.
+        ref=$(git rev-parse --short HEAD 2>/dev/null) || return
+    fi
+    echo ${ref#refs/heads/}
+}
+
 # Alias, borrowing from oh-my-zsh
 alias gst="git status"
-alias gfo="git fetch origin"
+alias gfo="git fetch origin $(git_current_branch)"
+alias ggpush="git push origin $(git_current_branch)"
+alias ggpull="git pull origin $(git_current_branch)"
+
 alias glol="git pretty"
+
 alias gd="git diff"
-alias ggpush="git push origin"
-alias ggpull="git pull origin"
+alias gds="git diff --staged"
+
+alias gcmsg="git commit -m"
+alias gc="git commit -v"
+
+alias ga="git add"
+alias gau="git add --update"
+alias gaa="git add --all"
+alias gapa="git add --patch"
