@@ -11,3 +11,11 @@ shopt -s histverify
 export HISTTIMEFORMAT="%F %T  "
 # Carry all histories from one session to another
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# Alias, borrowing from oh-my-zsh
+alias gst="git status"
+alias gfo="git fetch origin"
+alias glol="git pretty"
+alias gd="git diff"
+alias ggpush="git push origin"
+alias ggpull="git pull origin"
