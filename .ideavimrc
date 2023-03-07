@@ -17,6 +17,9 @@ map <leader>cr <Action>(RenameElement)
 map <leader>cj gd
 " map <leader>t <Action>(Refactorings.QuickListPopupAction)
 map <leader>so <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader>rr <Action>(Run)
+map <leader>rd <Action>(Debug)
+map <leader>rc <Action>(ChooseRunConfiguration)
 
 packadd! matchit
 Plug 'tpope/vim-surround'
