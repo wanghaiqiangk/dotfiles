@@ -12,7 +12,7 @@ map <leader>bb <Action>(Switcher)
 map <leader>ff <Action>(GotoFile)
 map <leader>ch <Action>(QuickJavaDoc)
 map <leader>c? <Action>(ShowErrorDescription)
-map <leader>g <Action>(EditorSelectWord)<Action>(FindInPath)
+map <leader>gg <Action>(EditorSelectWord)<Action>(FindInPath)
 map <leader>cr <Action>(RenameElement)
 map <leader>cj gd
 " map <leader>t <Action>(Refactorings.QuickListPopupAction)
@@ -20,6 +20,8 @@ map <leader>so <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader>rr <Action>(Run)
 map <leader>rd <Action>(Debug)
 map <leader>rc <Action>(ChooseRunConfiguration)
+map <leader>cn <Action>(VcsShowNextChangeMarker)
+map <leader>cp <Action>(VcsShowPrevChangeMarker)
 
 packadd! matchit
 Plug 'tpope/vim-surround'
