@@ -23,7 +23,7 @@ function git_current_branch() {
     echo ${ref#refs/heads/}
 }
 
-# Alias, borrowing from oh-my-zsh
+# Git alias, borrowed from oh-my-zsh
 alias gst="git status"
 alias gfo="git fetch origin $(git_current_branch)"
 alias ggpush="git push origin $(git_current_branch)"
@@ -41,3 +41,7 @@ alias ga="git add"
 alias gau="git add --update"
 alias gaa="git add --all"
 alias gapa="git add --patch"
+
+# Emacs alias
+alias ewq='emacs &'
+alias ec='emacsclient --no-wait '

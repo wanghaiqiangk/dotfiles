@@ -4,6 +4,9 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+" Uncomment to enable idea's join functionality.
+" See https://github.com/JetBrains/ideavim/blob/master/doc/ideajoin-examples.md
+" set ideajoin
 
 map [[ <Action>(MethodUp)
 map ]] <Action>(MethodDown)
