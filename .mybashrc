@@ -8,9 +8,12 @@ bind '"\en": history-search-forward'
 # Give the change to further modify the command from history expansion
 shopt -s histverify
 # Append the time of when the command was invoked
-export HISTTIMEFORMAT="%F %T  "
+HISTTIMEFORMAT="%F %T  "
 # Carry all histories from one session to another
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# enlarge history size
+HISTSIZE=2000
+HISTFILESIZE=4000
 
 function git_current_branch() {
     local ref
@@ -25,9 +28,10 @@ function git_current_branch() {
 
 # Git alias, borrowed from oh-my-zsh
 alias gst="git status"
-alias gfo="git fetch origin $(git_current_branch)"
-alias ggpush="git push origin $(git_current_branch)"
-alias ggpull="git pull origin $(git_current_branch)"
+alias gfo='git fetch origin'
+alias gfothis='git fetch origin $(git_current_branch)'
+alias ggpush='git push origin $(git_current_branch)'
+alias ggpull='git pull origin $(git_current_branch)'
 
 alias glol="git pretty"
 
