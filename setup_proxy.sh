@@ -1,4 +1,4 @@
 #!/bin/bash
 
-export http_proxy="http://127.0.0.1:3128"
-export https_proxy="http://127.0.0.1:3128"
+export http_proxy="http://127.0.0.1:50001"
+export https_proxy="http://127.0.0.1:50001"
