@@ -27,6 +27,20 @@ tich ()
 
 tlayout ()
 {
-    tmux new -s emacs -n startup -d
-    tmux new -s workspace \; split-window -c $HOME \; split-window -h -c $HOME \; select-pane -t 0
+    local uos_proj="/home/wang/uisee/uos"
+    local can_proj="/home/wang/uisee/can_data_analysis"
+
+    # background session for daemons
+    tmux -2 new-session -s background -d
+
+    # main workspace session for working
+    tmux -2 new-session -s workspace -d -n uos -c "$uos_proj"
+    tmux split-window -h -d -c "$uos_proj"
+    tmux new-window -n can -c "$can_proj"
+    tmux split-window -h -d -c "$can_proj"
+    tmux new-window -n playground -c "$HOME"
+    tmux select-window -t 0
+
+    # attach to our main session
+    tmux -2 attach-session -t workspace
 }
