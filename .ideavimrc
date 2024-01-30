@@ -10,6 +10,7 @@ set smartcase
 
 map [[ <Action>(MethodUp)
 map ]] <Action>(MethodDown)
+map <C-n> :noh<CR>
 
 map <leader>bb <Action>(Switcher)
 map <leader>ff <Action>(GotoFile)
