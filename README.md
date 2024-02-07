@@ -2,14 +2,20 @@
 
 # Prerequisites
 
-- Ubuntu 16.04+
-- GNU Stow
+- [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html), the Rust package manager
+- [Tuckr](https://github.com/RaphGL/Tuckr).
 
 # Get Started
 
+Clone this repo into `.dotfiles`.
+
 ```shell
-sudo apt install stow
-stow mybashrc ideavim tmux nvim
+git clone https://github.com/wanghaiqiangk/dotfiles.git .dotfiles
+```
+
+```shell
+tuckr add \*
+tuckr status  # to verify all of dotfiles are correctly managed
 echo '[ -f ~/.mybashrc ] && source ~/.mybashrc' >> ~/.bashrc
 ```
 
