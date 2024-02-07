@@ -1,22 +1,22 @@
-# Dotfiles - Customization
+# Dotfiles
 
+# Prerequisites
 
+- Ubuntu 16.04+
+- GNU Stow
 
-## Environment:
+# Get Started
 
-- OS - Ubuntu 16.04+
-
-
-
-## Configuration
+```shell
+sudo apt install stow
+stow mybashrc ideavim tmux nvim
+echo '[ -f ~/.mybashrc ] && source ~/.mybashrc' >> ~/.bashrc
+```
 
 More details are included in separated pages. Check below:
 
 - [mybashrc](./mybashrc.md)
 - [tmux](./tmux.md)
-- [forwarding proxy](./forwarding_proxy.md)
 - [ohmyzsh](./oh-my-zsh.md)
-- vim
-  - naive vim (TODO)
-  - [ideavim](./ideavim.md)
-- Emacs (TODO)
+- [ideavim](./ideavim.md)
+

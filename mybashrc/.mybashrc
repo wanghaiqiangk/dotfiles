@@ -15,6 +15,10 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 HISTSIZE=2000
 HISTFILESIZE=4000
 
+# tmux shortcuts
+[ -f ~/.shellrc.tmux ] && source ~/.shellrc.tmux
+
+# Git stuff, borrowed from oh-my-zsh
 function git_current_branch() {
     local ref
     ref=$(git symbolic-ref --quiet HEAD 2>/dev/null)
@@ -26,7 +30,6 @@ function git_current_branch() {
     echo ${ref#refs/heads/}
 }
 
-# Git alias, borrowed from oh-my-zsh
 alias gst="git status"
 alias gfo='git fetch origin'
 alias gfothis='git fetch origin $(git_current_branch)'
@@ -49,3 +52,6 @@ alias gapa="git add --patch"
 # Emacs alias
 alias ewq='emacs &'
 alias ec='emacsclient --no-wait '
+
+# doom
+export PATH="$HOME/.config/emacs/bin:$PATH"
