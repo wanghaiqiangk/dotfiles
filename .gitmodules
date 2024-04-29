@@ -1,0 +1,3 @@
+[submodule "Configs/nvim/.config/nvim/lua/cscope_maps.nvim"]
+	path = Configs/nvim/.config/nvim/lua/cscope_maps.nvim
+	url = https://github.com/dhananjaylatkar/cscope_maps.nvim.git
