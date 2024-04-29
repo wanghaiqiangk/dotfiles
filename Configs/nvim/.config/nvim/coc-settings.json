@@ -1,4 +1,6 @@
 {
     "inlayHint.enable": false,
-    "clangd.arguments": ["-header-insertion=never"]
+    "clangd.arguments": ["-header-insertion=never"],
+    "suggest.noselect": true,
+    "snippets.ultisnips.pythonPrompt": false
 }
