@@ -1,0 +1,14 @@
+#!/bin/sh
+
+git_current_branch() {
+    local ref
+    ref=$(git -C "$1" symbolic-ref --quiet HEAD 2>/dev/null)
+    local ret="$?"
+    if [ $ret -ne 0 ] ; then
+        [ $ret -eq 128 ] && { echo "git ✗"; return; }
+        ref=$(git rev-parse --short HEAD 2>/dev/null) || return
+    fi
+    echo "${ref#refs/heads/}"
+}
+
+git_current_branch "$1"
