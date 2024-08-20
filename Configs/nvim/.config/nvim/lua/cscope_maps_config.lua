@@ -1,6 +1,3 @@
-local cscope_maps_path = vim.fn.stdpath("config") .. "/lua/cscope_maps.nvim"
-vim.opt.rtp:prepend(cscope_maps_path)
-
 require('cscope_maps').setup(
 {
   -- maps related defaults
