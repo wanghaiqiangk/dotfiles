@@ -1,6 +1,17 @@
 {
     "inlayHint.enable": false,
-    "clangd.arguments": ["-header-insertion=never"],
     "suggest.noselect": true,
-    "snippets.ultisnips.pythonPrompt": false
+    "snippets.ultisnips.pythonPrompt": false,
+    "languageserver": {
+        "cmake": {
+            "command": "cmake-language-server",
+            "filetypes": ["cmake"],
+            "rootPatterns": [
+                "build/"
+            ],
+            "initializationOptions": {
+                "buildDirectory": "build"
+            }
+        }
+    }
 }
