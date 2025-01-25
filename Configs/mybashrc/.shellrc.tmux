@@ -23,18 +23,16 @@ tich ()
 
 tlayout ()
 {
-    local uos_proj="/home/wang/uisee/uos"
-    local can_proj="/home/wang/uisee/can_data_analysis"
+    local playground="$HOME"
 
     # background session for daemons
     tmux -2 new-session -d -s "background" -n "bg-0" -c "$HOME"
 
     # main workspace session for working
-    tmux -2 new-session -d -s "workspace" -n "uos" -c "$uos_proj"
-    tmux split-window -h -d -c "$uos_proj"
-    tmux new-window -n "can" -c "$can_proj"
-    tmux split-window -h -d -c "$can_proj"
-    tmux new-window -n "playground" -c "$HOME"
+    tmux -2 new-session -d -s "workspace" -n "playground" -c "$playground"
+    tmux split-window -h -d -c "$playground"
+    tmux new-window -n "others" -c "$playground"
+    tmux split-window -h -d -c "$playground"
 
     # attach to our main session
     tmux -2 attach-session -t workspace:0.0
