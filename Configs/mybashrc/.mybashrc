@@ -55,3 +55,7 @@ alias ec='emacsclient --no-wait '
 
 # doom
 export PATH="$HOME/.config/emacs/bin:$PATH"
+
+# vim
+# alternatives: view
+alias cnvim='nvim -u NONE -N -R "+set ignorecase smartcase"'
