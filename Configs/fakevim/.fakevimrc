@@ -1,1 +1,38 @@
 let mapleader = " "
+
+" highlight matched
+set hlsearch
+" case insensitive search
+set ignorecase
+set smartcase
+" search while typing
+set incsearch
+" wrap-around when searching
+set wrapscan
+" show pressed keys in lower right corner
+set showcmd
+" tab -> spaces
+set expandtab
+set tabstop=4
+set shiftwidth=4
+" keep a 5 line buffer for the cursor from top/bottom of window
+set scrolloff=5
+" X11 clipboard
+set clipboard=unnamed
+" use ~ with movement
+set tildeop
+
+" clear highlighted search term on space
+noremap <silent> <C-n> :nohls<CR>
+
+" reselect visual block after indent
+vnoremap < <gv
+vnoremap > >gv
+
+" MOVE LINE/BLOCK
+nnoremap <A-j> :m+<CR>==
+nnoremap <A-k> :m-2<CR>==
+inoremap <A-j> <Esc>:m+<CR>==gi
+inoremap <A-k> <Esc>:m-2<CR>==gi
+vnoremap <A-j> :m'>+<CR>gv=gv
+vnoremap <A-k> :m-2<CR>gv=gv
