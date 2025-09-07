@@ -4,29 +4,40 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-" Uncomment to enable idea's join functionality.
 " See https://github.com/JetBrains/ideavim/blob/master/doc/ideajoin-examples.md
-" set ideajoin
+set ideajoin
 
-map [[ <Action>(MethodUp)
-map ]] <Action>(MethodDown)
-map <C-n> :noh<CR>
-
+"" Window/Buffer related, but don't forget the quick switcher (double shift)
 map <leader>bb <Action>(Switcher)
 map <leader>ff <Action>(GotoFile)
-map <leader>ch <Action>(QuickJavaDoc)
-map <leader>c? <Action>(ShowErrorDescription)
+
+"" Code actions
+map gr <Action>(RenameElement)
+map gh <Action>(QuickJavaDoc)
+map g? <Action>(ShowErrorDescription)
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
 map <leader>gg <Action>(EditorSelectWord)<Action>(FindInPath)
-map <leader>cr <Action>(RenameElement)
-map <leader>cj gd
-" map <leader>t <Action>(Refactorings.QuickListPopupAction)
-map <leader>so <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader>rr <Action>(Run)
 map <leader>rd <Action>(Debug)
 map <leader>rc <Action>(ChooseRunConfiguration)
+" maybe ]c [c
 map <leader>cn <Action>(VcsShowNextChangeMarker)
 map <leader>cp <Action>(VcsShowPrevChangeMarker)
 
+map <leader>sv <Action>(IdeaVim.ReloadVimRc.reload)
+
+"" Vim/Nvim
+map <C-n> :noh<CR>
+inoremap <A-u> <esc>gUiwea
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+"" Plugins
 packadd! matchit
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
