@@ -16,6 +16,10 @@ map ]b <Action>(NextTab)
 map [b <Action>(PreviousTab)
 map ]c <Action>(VcsShowNextChangeMarker)
 map [c <Action>(VcsShowPrevChangeMarker)
+" Alternatives: C-A-] and C-A-[
+map ]p <Action>(NextProjectWindow)
+map [p <Action>(PreviousProjectWindow)
+map <leader>ww <Action>(HideAllWindows)
 
 "" Code actions
 map gr <Action>(RenameElement)
