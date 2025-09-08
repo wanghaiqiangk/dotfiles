@@ -9,9 +9,13 @@ set ideajoin
 set clipboard=ideaput
 set ideamarks
 
-"" Window/Buffer related, but don't forget the quick switcher (double shift)
+"" Movement-related
 map <leader>bb <Action>(Switcher)
 map <leader>ff <Action>(GotoFile)
+map ]b <Action>(NextTab)
+map [b <Action>(PreviousTab)
+map ]c <Action>(VcsShowNextChangeMarker)
+map [c <Action>(VcsShowPrevChangeMarker)
 
 "" Code actions
 map gr <Action>(RenameElement)
@@ -22,9 +26,6 @@ map ]] <Action>(MethodDown)
 map <leader>. <Action>(EditorSelectWord)<Action>(FindInPath)
 map <leader>/ <Action>(FindInPath)
 map <leader>rr <Action>(ChooseRunConfiguration)
-" maybe ]c [c
-map <leader>cn <Action>(VcsShowNextChangeMarker)
-map <leader>cp <Action>(VcsShowPrevChangeMarker)
 
 " Only takes effect in this source file
 map <leader>sv <Action>(IdeaVim.ReloadVimRc.reload)
