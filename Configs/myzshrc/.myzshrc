@@ -1,0 +1,42 @@
+# turn off flow control
+[[ $- == *i* ]] && stty -ixon
+
+# better history completion. type abc and try M-p or M-n
+bindkey "\ep" history-beginning-search-backward
+bindkey "\en" history-beginning-search-forward
+
+# Give the change to further modify the command from history expansion
+setopt histverify
+# Append the time of when the command was invoked
+HISTTIMEFORMAT="%F %T  "
+# Carry all histories from one session to another
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# enlarge history size
+HISTSIZE=2000
+HISTFILESIZE=4000
+
+# tmux shortcuts
+[ -f ~/.shellrc.tmux ] && source ~/.shellrc.tmux
+
+# Git stuff, borrowed from oh-my-zsh
+function git_current_branch() {
+    local ref
+    ref=$(git symbolic-ref --quiet HEAD 2>/dev/null)
+    local ret="$?"
+    if [ $ret -ne 0 ] ; then
+        [ $ret -eq 128 ] && return # no git repo.
+        ref=$(git rev-parse --short HEAD 2>/dev/null) || return
+    fi
+    echo ${ref#refs/heads/}
+}
+
+# Emacs alias
+alias ewq='emacs &'
+alias ec='emacsclient --no-wait '
+
+# doom
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
+# vim
+# alternatives: view
+alias cnvim='nvim -u NONE -N -R "+set ignorecase smartcase"'
