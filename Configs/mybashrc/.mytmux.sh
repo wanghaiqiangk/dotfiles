@@ -37,3 +37,9 @@ tlayout ()
     # attach to our main session
     tmux -2 attach-session -t workspace:0.0
 }
+
+tmux_send_keys_all_panes() {
+    for _pane in $(tmux list-panes -a -F '#{pane_id}'); do
+        tmux send-keys -t ${_pane} "$@" Enter
+    done
+}
