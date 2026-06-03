@@ -1,0 +1,17 @@
+bind generic + !git commit --amend
+bind generic 9 @sh -c "git log --format='%s' -1 %(commit) | xclip -selection c"
+bind generic - !git revert %(commit)
+
+# View diffs using delta
+# Via https://github.com/jonas/tig/issues/26#issuecomment-1923835137
+
+bind diff D >sh -c "git show %(commit) | delta --paging always"
+bind diff S >sh -c "git show %(commit) | delta --paging always --side-by-side"
+
+bind stage  D >sh -c "git diff HEAD -- %(file) | delta --paging always"
+bind stage  S >sh -c "git diff HEAD -- %(file) | delta --paging always --side-by-side"
+bind status D >sh -c "git diff HEAD -- %(file) | delta --paging always"
+bind status S >sh -c "git diff HEAD -- %(file) | delta --paging always --side-by-side"
+
+bind main	1	:goto %(commit)^
+bind main	2	:goto %(commit)^2

@@ -1,0 +1,17 @@
+_fzf_complete_switch () {
+    if [ "$3" = "switch" ] || [ "$3" = "checkout" ]; then
+        _fzf_complete --multi --reverse --prompt="git switch> " -- "switch ** switch" < <(git branch --sort=-committerdate | grep -v "^\*" | sed 's/^ *//')
+    fi
+}
+
+_fzf_complete_tig () {
+    _fzf_complete --multi --reverse --prompt="tig> " -- "$@" < <(git branch --sort=-committerdate | grep -v "^\*" | sed 's/^ *//')
+}
+
+# complete -r git 2>/dev/null
+# complete -F _fzf_complete_switch -o default -o bashdefault git
+complete -F _fzf_complete_tig -o default -o bashdefault tig
+
+gcb () {
+    git switch $(git branch --sort=-committerdate | grep -v "^\*" | sed 's/^ *//' | fzf --prompt="git switch> ")
+}

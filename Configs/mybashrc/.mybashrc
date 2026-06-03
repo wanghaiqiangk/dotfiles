@@ -1,3 +1,4 @@
+## Shell Options
 # turn off flow control
 [[ $- == *i* ]] && stty -ixon
 
@@ -15,11 +16,14 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 HISTSIZE=2000
 HISTFILESIZE=4000
 
-# tmux shortcuts
-[ -f ~/.shellrc.tmux ] && source ~/.shellrc.tmux
+## Sourcing
+[ -f ~/.mytmux.sh ] && source ~/.mytmux.sh
+[ -f ~/.myfzf.sh ] && source ~/.myfzf.sh
+[ -f ~/.local/share/fzf-git.sh/fzf-git.sh ] && source ~/.local/share/fzf-git.sh/fzf-git.sh
 
+## Custom Functions
 # Git stuff, borrowed from oh-my-zsh
-function git_current_branch() {
+git_current_branch() {
     local ref
     ref=$(git symbolic-ref --quiet HEAD 2>/dev/null)
     local ret="$?"
@@ -30,6 +34,22 @@ function git_current_branch() {
     echo ${ref#refs/heads/}
 }
 
+# given a commit, find immediate children of that commit.
+git_children_of() {
+    for arg in "$@"; do
+      for commit in $(git rev-parse $arg^0); do
+        for child in $(git log --format='%H %P' | grep -F " $commit" | cut -f1 -d' '); do
+          echo "$child"
+        done
+      done
+    done
+}
+
+## PATH env
+# for doom
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
+# Aliases
 alias gst="git status"
 alias gfo='git fetch origin'
 alias gfothis='git fetch origin $(git_current_branch)'
@@ -49,13 +69,11 @@ alias gau="git add --update"
 alias gaa="git add --all"
 alias gapa="git add --patch"
 
-# Emacs alias
 alias ewq='emacs &'
 alias ec='emacsclient --no-wait '
 
-# doom
-export PATH="$HOME/.config/emacs/bin:$PATH"
-
-# vim
 # alternatives: view
 alias cnvim='nvim -u NONE -N -R "+set ignorecase smartcase"'
+
+alias fd='fdfind'
+alias bat='batcat'
