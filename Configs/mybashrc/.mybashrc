@@ -75,5 +75,9 @@ alias ec='emacsclient --no-wait '
 # alternatives: view
 alias cnvim='nvim -u NONE -N -R "+set ignorecase smartcase"'
 
-alias fd='fdfind'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias fdfind='fd'
+else
+    alias fd='fdfind'
+fi
 alias bat='batcat'
