@@ -33,7 +33,7 @@ _fzf_compgen_dir() {
 }
 
 # gco has been defined as an alias by OMZ
-unalias gco
+unalias gco 2>/dev/null
 gco() {
   _fzf_git_each_ref --no-multi | xargs git checkout
 }

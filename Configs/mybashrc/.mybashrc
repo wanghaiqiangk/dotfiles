@@ -45,6 +45,26 @@ git_children_of() {
     done
 }
 
+# pick an item from directory
+pick() {
+    local directory="$1"
+    local base=$(basename "$directory")
+    ls -1td "${directory}"/* 2>/dev/null |
+        fzf --no-sort \
+            --height=60% \
+            --reverse \
+            --prompt="${base}> "
+}
+
+_pick() {
+    local cur prev words cword
+
+    _init_completion || return
+    _filedir -d
+}
+
+complete -F _pick pick
+
 ## PATH env
 # for doom
 export PATH="$HOME/.config/emacs/bin:$PATH"
